@@ -20,7 +20,11 @@ document.getElementById("loginBtn").addEventListener("click", () => {
 
     if (emailcheck) {
         if (passcheck) {
-            localStorage.setItem("currentuser", username)
+            let curntUser = {
+                username,
+                email
+            }
+            localStorage.setItem("currentuser", JSON.stringify(curntUser))
             localStorage.removeItem("currentAns")
             localStorage.removeItem("currentPage")
             localStorage.removeItem("correct_ans")
