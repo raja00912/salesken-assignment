@@ -25,10 +25,6 @@ document.getElementById("loginBtn").addEventListener("click", () => {
         alert("Enter your name")
     }
 
-    else if (email.length == 0) {
-        alert("Enter your email")
-    }
-
     else if (password.length == 0) {
         alert("Enter your password")
     }
