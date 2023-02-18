@@ -1,4 +1,4 @@
-
+// ----- updating the question-----
 function getQestion() {
     console.log("yes");
     let page = JSON.parse(localStorage.getItem("currentPage")) || 0;
@@ -19,6 +19,7 @@ function getQestion() {
 
 }
 
+// ------ updating the question ----------
 function getPage() {
     let page = JSON.parse(localStorage.getItem("currentPage")) || 0;
     page++;
@@ -29,6 +30,7 @@ function getPage() {
     getQestion()
 }
 
+// -------- checking if answer is correct or not and updating the question. -------------
 function checkans() {
     let page = JSON.parse(localStorage.getItem("currentPage")) || 0;
     let ans = JSON.parse(localStorage.getItem("currentAns")) || alert("Select an option")
@@ -48,6 +50,7 @@ function checkans() {
     }
 }
 
+// --------- toggle the selected option --------------
 function saveAns(value) {
     localStorage.setItem("currentAns", JSON.stringify(value.text));
     if (value.id == "firstOp") {
@@ -80,11 +83,13 @@ function saveAns(value) {
     }
 }
 
+// -------------onload displaying the question ------------
 window.onload = function () {
     localStorage.removeItem("currentAns")
     getQestion();
 }
 
+// ------------ quiz data -------------
 var quizes = [
     {
         "category": "General Knowledge",
