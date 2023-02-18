@@ -6,17 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="./styles/quiz.css">
 </head>
 
 <body>
-    <div>
+    <div id="parentDiv">
         <p id="question"></p>
-        <button id="firstOp" onclick="saveAns(this.innerText)"></button><br>
-        <button id="secondOp" onclick="saveAns(this.innerText)"></button><br>
-        <button id="thirdOp" onclick="saveAns(this.innerText)"></button><br>
-        <button id="fourthOp" onclick="saveAns(this.innerText)"></button><br>
-        <button onclick="getPage()">Skip</button>
-        <button onclick="checkans(this.innerText)">Save & Next</button>
+        <button id="firstOp" onclick="saveAns({text:this.innerText,id:this.id})"></button><br>
+        <button id="secondOp" onclick="saveAns({text:this.innerText,id:this.id})"></button><br>
+        <button id="thirdOp" onclick="saveAns({text:this.innerText,id:this.id})"></button><br>
+        <button id="fourthOp" onclick="saveAns({text:this.innerText,id:this.id})"></button><br>
+        <button id="skipbtn" onclick="getPage()">Skip</button>
+        <button id="submitbtn" onclick="checkans(this.innerText)">Save & Next</button>
     </div>
 </body>
 

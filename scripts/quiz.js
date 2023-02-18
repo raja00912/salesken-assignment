@@ -2,12 +2,21 @@
 function getQestion() {
     console.log("yes");
     let page = JSON.parse(localStorage.getItem("currentPage")) || 0;
+    if (page == 10) {
+        location.href = "report.html"
+    }
+    else {
+        document.getElementById("question").innerText = (page + 1) + ". " + quizes[page].question
+        document.getElementById("firstOp").innerText = quizes[page].answers[0];
+        document.getElementById("secondOp").innerText = quizes[page].answers[1];
+        document.getElementById("thirdOp").innerText = quizes[page].answers[2];
+        document.getElementById("fourthOp").innerText = quizes[page].answers[3];
+        if (page == 9) {
+            document.getElementById("submitbtn").innerText = "Submit"
+            document.getElementById("skipbtn").innerText = "Skip & Submit"
+        }
+    }
 
-    console.log(page)
-    document.getElementById("firstOp").innerText = quizes[page].answers[0];
-    document.getElementById("secondOp").innerText = quizes[page].answers[1];
-    document.getElementById("thirdOp").innerText = quizes[page].answers[2];
-    document.getElementById("fourthOp").innerText = quizes[page].answers[3];
 }
 
 function getPage() {
@@ -22,6 +31,7 @@ function checkans() {
     let ans = JSON.parse(localStorage.getItem("currentAns")) || alert("Select an option")
     if (ans) {
         let correctAns = JSON.parse(localStorage.getItem("correct_ans")) || 0;
+        let cureentId = localStorage.getItem("currentId")
         if (quizes[page].correct_answer == ans) {
             correctAns++;
             console.log("true")
@@ -30,15 +40,45 @@ function checkans() {
         page++;
         localStorage.setItem("currentPage", JSON.stringify(page))
         localStorage.removeItem("currentAns")
+        document.getElementById(cureentId).classList.remove("selectedAns")
         getQestion()
     }
 }
 
 function saveAns(value) {
-    localStorage.setItem("currentAns", JSON.stringify(value));
+    localStorage.setItem("currentAns", JSON.stringify(value.text));
+    if (value.id == "firstOp") {
+        document.getElementById("firstOp").classList.add("selectedAns")
+        localStorage.setItem("currentId", value.id)
+    }
+    else {
+        document.getElementById("firstOp").classList.remove("selectedAns")
+    }
+    if (value.id == "secondOp") {
+        document.getElementById("secondOp").classList.add("selectedAns")
+        localStorage.setItem("currentId", value.id)
+    }
+    else {
+        document.getElementById("secondOp").classList.remove("selectedAns")
+    }
+    if (value.id == "thirdOp") {
+        document.getElementById("thirdOp").classList.add("selectedAns")
+        localStorage.setItem("currentId", value.id)
+    }
+    else {
+        document.getElementById("thirdOp").classList.remove("selectedAns")
+    }
+    if (value.id == "fourthOp") {
+        document.getElementById("fourthOp").classList.add("selectedAns")
+        localStorage.setItem("currentId", value.id)
+    }
+    else {
+        document.getElementById("fourthOp").classList.remove("selectedAns")
+    }
 }
 
 window.onload = function () {
+    localStorage.removeItem("currentAns")
     getQestion();
 }
 

@@ -21,6 +21,9 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     if (emailcheck) {
         if (passcheck) {
             localStorage.setItem("currentuser", username)
+            localStorage.removeItem("currentAns")
+            localStorage.removeItem("currentPage")
+            localStorage.removeItem("correct_ans")
             location.href = "quiz.html"
         }
         else {
