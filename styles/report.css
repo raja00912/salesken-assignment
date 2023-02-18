@@ -1,0 +1,28 @@
+* {
+    background-color: teal;
+}
+
+#parentDiv {
+    width: 20%;
+    margin: auto;
+    margin-top: 150px;
+    background-color: white;
+    padding: 30px 30px 50px 30px;
+    box-shadow: 0 0 10px black;
+    text-align: center;
+}
+
+#parentDiv p,
+#parentDiv a {
+    background-color: white;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+#parentDiv a {
+    text-decoration: none;
+    color: white;
+    background-color: blue;
+    padding: 7px 15px;
+    border-radius: 10px;
+}

@@ -23,6 +23,9 @@ function getPage() {
     let page = JSON.parse(localStorage.getItem("currentPage")) || 0;
     page++;
     localStorage.setItem("currentPage", JSON.stringify(page))
+    let cureentId = localStorage.getItem("currentId")
+    document.getElementById(cureentId).classList.remove("selectedAns")
+    localStorage.removeItem("currentAns")
     getQestion()
 }
 

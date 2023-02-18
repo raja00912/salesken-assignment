@@ -12,9 +12,9 @@ document.getElementById("loginBtn").addEventListener("click", () => {
         if (elem.email == email) {
             username = elem.name
             emailcheck = true;
-        }
-        if (elem.password == password) {
-            passcheck = true;
+            if (elem.password == password) {
+                passcheck = true;
+            }
         }
     })
 
