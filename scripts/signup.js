@@ -23,18 +23,24 @@ document.getElementById("loginBtn").addEventListener("click", () => {
 
 
     if (name && emailcheck && password) {
-        let userdata = {
-            name,
-            email,
-            password
+        if (password.length < 6) {
+            alert("Please enter a password of minimum 6 characters")
         }
-        users.push(userdata)
-        console.log(users)
-        localStorage.setItem("userdata", JSON.stringify(users))
-        alert("Account created successfully. Redirecting to login page")
-        setTimeout(() => {
-            location.href = "index.html"
-        }, 1000)
+        else {
+            let userdata = {
+                name,
+                email,
+                password
+            }
+            users.push(userdata)
+            console.log(users)
+            localStorage.setItem("userdata", JSON.stringify(users))
+            alert("Account created successfully. Redirecting to login page")
+            setTimeout(() => {
+                location.href = "index.html"
+            }, 1000)
+        }
+
     }
 
 })
