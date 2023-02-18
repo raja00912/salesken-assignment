@@ -11,12 +11,12 @@
 <body>
     <div>
         <p id="question"></p>
-        <button id="firstOp" onclick="getQestion()"></button><br>
-        <button id="secondOp" onclick="getQestion()"></button><br>
-        <button id="thirdOp" onclick="getQestion()"></button><br>
-        <button id="fouthOp" onclick="getQestion()"></button><br>
+        <button id="firstOp" onclick="saveAns(this.innerText)"></button><br>
+        <button id="secondOp" onclick="saveAns(this.innerText)"></button><br>
+        <button id="thirdOp" onclick="saveAns(this.innerText)"></button><br>
+        <button id="fourthOp" onclick="saveAns(this.innerText)"></button><br>
         <button onclick="getPage()">Skip</button>
-        <button onclick="checkans()">Save & Next</button>
+        <button onclick="checkans(this.innerText)">Save & Next</button>
     </div>
 </body>
 

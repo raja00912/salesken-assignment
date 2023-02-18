@@ -1,19 +1,41 @@
 
 function getQestion() {
     console.log("yes");
-    let page = JSON.parse(localStorage.getItem("currentPage")) || 1;
+    let page = JSON.parse(localStorage.getItem("currentPage")) || 0;
+
     console.log(page)
+    document.getElementById("firstOp").innerText = quizes[page].answers[0];
+    document.getElementById("secondOp").innerText = quizes[page].answers[1];
+    document.getElementById("thirdOp").innerText = quizes[page].answers[2];
+    document.getElementById("fourthOp").innerText = quizes[page].answers[3];
 }
 
 function getPage() {
-    let page = JSON.parse(localStorage.getItem("currentPage")) || 1;
+    let page = JSON.parse(localStorage.getItem("currentPage")) || 0;
     page++;
     localStorage.setItem("currentPage", JSON.stringify(page))
     getQestion()
 }
 
 function checkans() {
+    let page = JSON.parse(localStorage.getItem("currentPage")) || 0;
+    let ans = JSON.parse(localStorage.getItem("currentAns")) || alert("Select an option")
+    if (ans) {
+        let correctAns = JSON.parse(localStorage.getItem("correct_ans")) || 0;
+        if (quizes[page].correct_answer == ans) {
+            correctAns++;
+            console.log("true")
+            localStorage.setItem("correct_ans", correctAns);
+        }
+        page++;
+        localStorage.setItem("currentPage", JSON.stringify(page))
+        localStorage.removeItem("currentAns")
+        getQestion()
+    }
+}
 
+function saveAns(value) {
+    localStorage.setItem("currentAns", JSON.stringify(value));
 }
 
 window.onload = function () {
