@@ -21,8 +21,19 @@ document.getElementById("loginBtn").addEventListener("click", () => {
         }
     }
 
+    if (name.length == 0) {
+        alert("Enter your name")
+    }
 
-    if (name && emailcheck && password) {
+    else if (email.length == 0) {
+        alert("Enter your email")
+    }
+
+    else if (password.length == 0) {
+        alert("Enter your password")
+    }
+
+    else if (name && emailcheck && password) {
         if (password.length < 6) {
             alert("Please enter a password of minimum 6 characters")
         }

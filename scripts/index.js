@@ -8,6 +8,8 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     let passcheck = false;
     let username = "";
 
+
+
     users.forEach((elem) => {
         if (elem.email == email) {
             username = elem.name
@@ -18,7 +20,15 @@ document.getElementById("loginBtn").addEventListener("click", () => {
         }
     })
 
-    if (emailcheck) {
+    if (email.length == 0) {
+        alert("Enter your email")
+    }
+
+    else if (password.length == 0) {
+        alert("Enter your password")
+    }
+
+    else if (emailcheck) {
         if (passcheck) {
             let curntUser = {
                 username,
